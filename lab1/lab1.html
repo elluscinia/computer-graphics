@@ -1,37 +1,39 @@
 <html>
-<head>
-<body/>
-<p>С помощью алгоритма Брещенхема построить 10 отрезков прямой из точки(0,0) равномерно тангенсами угла наклона от 0 до -1 </p>
-<canvas id= 'less01' width= '160' height= '240'>
+<head/>
+<body>
+<p>РЎ РїРѕРјРѕС‰СЊСЋ Р°Р»РіРѕСЂРёС‚РјР° Р‘СЂРµС‰РµРЅС…РµРјР° РїРѕСЃС‚СЂРѕРёС‚СЊ 10 РѕС‚СЂРµР·РєРѕРІ РїСЂСЏРјРѕР№ РёР· С‚РѕС‡РєРё(0,0) СЂР°РІРЅРѕРјРµСЂРЅРѕ С‚Р°РЅРіРµРЅСЃР°РјРё СѓРіР»Р° РЅР°РєР»РѕРЅР° РѕС‚ 0 РґРѕ -1</p>
+<canvas id = 'less01' width= '320' height= '480'>
 	<script>
-		var canvas = document.getElementById( 'less01');
+		var canvas = document.getElementById('lesson1');
 		var ctx = canvas.getContext('2d');
 
 		var k = 1;
-		for(j=0; j<10;j++) {
-			var delta =0;
-			var y =0;
-			for(i=0; i<100; i++) {
-				if(delta>=5) {
-					y+=1;
-					delta-=10
+		for (j=0; j<10; j++){
+			var delta = 0;
+			var y = 0;
+			for (i=0; i<50; i++){
+				if (delta >=2){
+					y += 1;
+					delta -= 10;
 				}
-				delta +=j;
-				ctx.fillRect(k*i,y*k,k,k);
+				delta += j;
+				ctx.fillRect(k*i, y*k, 1, 1);
 			}
 		}
+
 		ctx.restore;
 	</script>
 </canvas>
-<p>С помощью алгоритма Брезенхема построить окружность радуиса 53. Сделать возможность изменять радиус с переменной </p>
+<p>РЎ РїРѕРјРѕС‰СЊСЋ Р°Р»РіРѕСЂРёС‚РјР° Р‘СЂРµР·РµРЅС…РµРјР° РїРѕСЃС‚СЂРѕРёС‚СЊ РѕРєСЂСѓР¶РЅРѕСЃС‚СЊ СЂР°РґСѓРёСЃР° 53. РЎРґРµР»Р°С‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РёР·РјРµРЅСЏС‚СЊ СЂР°РґРёСѓСЃ СЃ РїРµСЂРµРјРµРЅРЅРѕР№</p>
 <canvas id = 'less01.1' width = '160' height = '240'>
 	<script>
 		var canvas = document.getElementById('less01.1');
 		var ctx = canvas.getContext('2d');
-		var dfs = 6,dfd = -114;
-		var F = -59;
-		var x = -31, y =0;
-		var x0 = 53, y0 = 53;
+		var x = -53, y =0;
+		var R=53;
+		var dfs = 4*y+6,dfd = 4*x+4*y+10;
+		var F = x*x+(x-1)*(x-1)+1+1-2*R*R;
+		var x0 = 60, y0 = 60;
 		while(x+y<=0){
 			ctx.fillRect(x0+x, y0+y, 1, 1);
 			ctx.fillRect(x0-x, y0+y, 1, 1);
